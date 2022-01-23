@@ -1,7 +1,8 @@
 import { Box } from '@chakra-ui/react';
 import { baseUrl, fetchApi } from '../utils/fetchApi';
-import Proverty from '../components/Proverty';
+
 import Banner from '../components/Banner';
+import Property from '../components/Property';
 
 import { Flex } from '@chakra-ui/react';
 
@@ -21,7 +22,7 @@ export default function Home({ propertyForRent, propertyForSale }) {
       {/* fetch rent */}
       <Flex flexWrap="wrap">
         {propertyForRent.map((property) => (
-          <Proverty key={property.id} property={property} />
+          <Property key={property.id} property={property} />
         ))}
       </Flex>
 
@@ -39,7 +40,7 @@ export default function Home({ propertyForRent, propertyForSale }) {
       {/* fetch for sale */}
       <Flex flexWrap="wrap">
         {propertyForSale.map((property) => (
-          <Proverty key={property.id} property={property} />
+          <Property key={property.id} property={property} />
         ))}
       </Flex>
     </Box>
