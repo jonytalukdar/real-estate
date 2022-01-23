@@ -7,6 +7,8 @@ import { BsGridFill } from 'react-icons/bs';
 import { GoVerified } from 'react-icons/go';
 import millify from 'millify';
 
+import homeImage from '../assets/images/house.jpg';
+
 const Property = ({
   property: {
     coverPhoto,
@@ -31,7 +33,12 @@ const Property = ({
       cursor="pointer"
     >
       <Box>
-        <Image src={coverPhoto.url} width={400} height={260} alt={title} />
+        <Image
+          src={coverPhoto.url || homeImage}
+          width={400}
+          height={260}
+          alt={title}
+        />
       </Box>
       <Box w="full">
         <Flex paddingTop="2" alignItems="center" justifyContent="space-between">
