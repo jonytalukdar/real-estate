@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import Image from 'next/image';
-import { Flex, Box, Icon } from '@chakra-ui/react';
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
+import { Box, Flex, Icon } from '@chakra-ui/react';
+
+import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 
 function ImageScrollbar({ data }) {
   return (
@@ -11,7 +12,7 @@ function ImageScrollbar({ data }) {
         <Box
           key={item.id}
           width="910px"
-          itemID={item.id}
+          itemId={item.id}
           overflow="hidden"
           p="1"
         >
@@ -22,7 +23,7 @@ function ImageScrollbar({ data }) {
             width={1000}
             height={500}
             sizes="(max-width: 500px) 100px, (max-width: 1023px) 400px, 1000px"
-            alt="name"
+            alt="photo"
           />
         </Box>
       ))}
@@ -34,10 +35,14 @@ function LeftArrow() {
   const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
 
   return (
-    <Flex justifyContent="center" alignItems="center" marginRight="1">
+    <Flex
+      disabled={isFirstItemVisible}
+      onClick={() => scrollPrev()}
+      justifyContent="center"
+      alignItems="center"
+      marginRight="1"
+    >
       <Icon
-        disabled={isFirstItemVisible}
-        onClick={() => scrollPrev()}
         as={FaArrowAltCircleLeft}
         fontSize="2xl"
         cursor="pointer"
@@ -48,13 +53,17 @@ function LeftArrow() {
 }
 
 function RightArrow() {
-  const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
+  const { isLastItemVisible, scrollNext } = React.useContext(VisibilityContext);
 
   return (
-    <Flex justifyContent="center" alignItems="center" marginLeft="1">
+    <Flex
+      disabled={isLastItemVisible}
+      onClick={() => scrollNext()}
+      justifyContent="center"
+      alignItems="center"
+      marginLeft="1"
+    >
       <Icon
-        disabled={isLastItemVisible}
-        onClick={() => scrollNext()}
         as={FaArrowAltCircleRight}
         fontSize="2xl"
         cursor="pointer"
