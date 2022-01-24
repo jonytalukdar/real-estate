@@ -27,7 +27,9 @@ const SearchFilters = () => {
     const values = getFilterValues(filtererValues);
 
     values.forEach((item) => {
-      query[item.name] = item.value;
+      if (item.value && filtererValues?.[item.name]) {
+        query[item.name] = item.value;
+      }
     });
 
     router.push({ pathname: path, query });
