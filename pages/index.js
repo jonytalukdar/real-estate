@@ -20,8 +20,8 @@ export default function Home({ propertyForRent, propertyForSale }) {
         imageUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4"
       />
       {/* fetch rent */}
-      <Flex flexWrap="wrap">
-        {propertyForRent.map((property) => (
+      <Flex flexWrap="wrap" alignItems="center" justifyContent="center">
+        {propertyForRent?.map((property) => (
           <Property key={property.id} property={property} />
         ))}
       </Flex>
@@ -38,8 +38,8 @@ export default function Home({ propertyForRent, propertyForSale }) {
       />
 
       {/* fetch for sale */}
-      <Flex flexWrap="wrap">
-        {propertyForSale.map((property) => (
+      <Flex flexWrap="wrap" alignItems="center" justifyContent="center">
+        {propertyForSale?.map((property) => (
           <Property key={property.id} property={property} />
         ))}
       </Flex>

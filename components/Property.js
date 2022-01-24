@@ -34,7 +34,7 @@ const Property = ({
     >
       <Box>
         <Image
-          src={coverPhoto.url || homeImage}
+          src={coverPhoto ? coverPhoto.url : homeImage}
           width={400}
           height={260}
           alt={title}
